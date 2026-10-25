@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Button from '../components/Button'
+import TextField from '../components/TextField'
 
 const INITIAL_STATE = { name: '', email: '', guests: '15', date: '', message: '' }
 
@@ -35,6 +36,29 @@ function Groups() {
     if (Object.keys(formErrors).length === 0) setSubmitted(true)
   }
 
+  if (submitted) {
+    return (
+      <section className="mx-auto max-w-xl px-6 py-16 text-center">
+        <h1 className="font-heading text-2xl text-ink">Demande envoyée</h1>
+        <p className="mt-4 text-ink/70">
+          Merci {form.name.trim()}, votre demande de devis pour {form.guests} personnes a bien
+          été reçue. Nous vous recontacterons sous 48h à l'adresse {form.email.trim()}.
+        </p>
+        <div className="mt-6">
+          <Button
+            variant="secondary"
+            onClick={() => {
+              setForm(INITIAL_STATE)
+              setSubmitted(false)
+            }}
+          >
+            Faire une autre demande
+          </Button>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section className="mx-auto max-w-xl px-6 py-10">
       <h1 className="font-heading text-2xl text-ink">Groupes & privatisation</h1>
@@ -43,109 +67,59 @@ function Groups() {
         formulaire ci-dessous et nous revenons vers vous sous 48h.
       </p>
 
-      {submitted ? (
-        <p className="mt-8 rounded-lg bg-sage/10 px-4 py-3 text-sage" role="status">
-          Votre demande de devis a bien été envoyée, merci {form.name}.
-        </p>
-      ) : (
-        <form className="mt-6 flex flex-col gap-5" onSubmit={handleSubmit} noValidate>
-          <div>
-            <label htmlFor="group-name-field" className="block font-medium text-ink/80">
-              Nom
-            </label>
-            <input
-              id="group-name-field"
-              type="text"
-              value={form.name}
-              onChange={handleFieldChange('name')}
-              aria-invalid={Boolean(errors.name)}
-              aria-describedby={errors.name ? 'group-name-error' : undefined}
-              className="mt-1 min-h-11 w-full rounded-lg border border-sage/30 px-3 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage"
-            />
-            {errors.name && (
-              <p id="group-name-error" className="mt-1 text-sm text-terracotta-700">
-                {errors.name}
-              </p>
-            )}
-          </div>
+      <form className="mt-6 flex flex-col gap-5" onSubmit={handleSubmit} noValidate>
+        <TextField
+          id="group-name-field"
+          label="Nom"
+          type="text"
+          value={form.name}
+          onChange={handleFieldChange('name')}
+          error={errors.name}
+        />
 
-          <div>
-            <label htmlFor="group-email-field" className="block font-medium text-ink/80">
-              E-mail
-            </label>
-            <input
-              id="group-email-field"
-              type="email"
-              value={form.email}
-              onChange={handleFieldChange('email')}
-              aria-invalid={Boolean(errors.email)}
-              aria-describedby={errors.email ? 'group-email-error' : undefined}
-              className="mt-1 min-h-11 w-full rounded-lg border border-sage/30 px-3 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage"
-            />
-            {errors.email && (
-              <p id="group-email-error" className="mt-1 text-sm text-terracotta-700">
-                {errors.email}
-              </p>
-            )}
-          </div>
+        <TextField
+          id="group-email-field"
+          label="E-mail"
+          type="email"
+          value={form.email}
+          onChange={handleFieldChange('email')}
+          error={errors.email}
+        />
 
-          <div>
-            <label htmlFor="group-guests-field" className="block font-medium text-ink/80">
-              Nombre de personnes
-            </label>
-            <input
-              id="group-guests-field"
-              type="number"
-              min="15"
-              value={form.guests}
-              onChange={handleFieldChange('guests')}
-              aria-invalid={Boolean(errors.guests)}
-              aria-describedby={errors.guests ? 'group-guests-error' : undefined}
-              className="mt-1 min-h-11 w-full rounded-lg border border-sage/30 px-3 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage"
-            />
-            {errors.guests && (
-              <p id="group-guests-error" className="mt-1 text-sm text-terracotta-700">
-                {errors.guests}
-              </p>
-            )}
-          </div>
+        <TextField
+          id="group-guests-field"
+          label="Nombre de personnes"
+          type="number"
+          min="15"
+          value={form.guests}
+          onChange={handleFieldChange('guests')}
+          error={errors.guests}
+        />
 
-          <div>
-            <label htmlFor="group-date-field" className="block font-medium text-ink/80">
-              Date souhaitée
-            </label>
-            <input
-              id="group-date-field"
-              type="date"
-              value={form.date}
-              onChange={handleFieldChange('date')}
-              aria-invalid={Boolean(errors.date)}
-              aria-describedby={errors.date ? 'group-date-error' : undefined}
-              className="mt-1 min-h-11 w-full rounded-lg border border-sage/30 px-3 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage"
-            />
-            {errors.date && (
-              <p id="group-date-error" className="mt-1 text-sm text-terracotta-700">
-                {errors.date}
-              </p>
-            )}
-          </div>
+        <TextField
+          id="group-date-field"
+          label="Date souhaitée"
+          type="date"
+          value={form.date}
+          onChange={handleFieldChange('date')}
+          error={errors.date}
+        />
 
-          <div>
-            <label htmlFor="group-message-field" className="block font-medium text-ink/80">
-              Message (facultatif)
-            </label>
-            <textarea
-              id="group-message-field"
-              rows="3"
-              value={form.message}
-              onChange={handleFieldChange('message')}
-              className="mt-1 w-full rounded-lg border border-sage/30 px-3 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage"
-            />
-          </div>
+        <div>
+          <label htmlFor="group-message-field" className="block font-medium text-ink/80">
+            Message (facultatif)
+          </label>
+          <textarea
+            id="group-message-field"
+            rows="3"
+            value={form.message}
+            onChange={handleFieldChange('message')}
+            className="mt-1 w-full rounded-lg border border-sage/30 px-3 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage"
+          />
+        </div>
 
-          <Button type="submit">Envoyer la demande de devis</Button>
-        </form>
-      )}
+        <Button type="submit">Envoyer la demande de devis</Button>
+      </form>
     </section>
   )
 }
