@@ -1,6 +1,6 @@
 const VARIANTS = {
   primary:
-    'bg-terracotta-500 text-white hover:bg-terracotta-600 focus-visible:outline-terracotta-700',
+    'bg-terracotta-600 text-white hover:bg-terracotta-700 focus-visible:outline-terracotta-700',
   secondary:
     'bg-transparent text-sage border border-sage hover:bg-sage hover:text-white focus-visible:outline-sage',
 }
