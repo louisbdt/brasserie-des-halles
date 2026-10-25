@@ -36,7 +36,7 @@ function DishDetailModal({ dish, onClose }) {
             type="button"
             onClick={onClose}
             aria-label="Fermer le détail du plat"
-            className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-ink/60 hover:bg-cream-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage"
+            className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-ink/70 hover:bg-cream-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage"
           >
             ✕
           </button>

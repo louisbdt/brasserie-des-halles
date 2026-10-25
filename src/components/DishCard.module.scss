@@ -4,6 +4,7 @@
 .card {
   @include mix.card-surface(white);
   display: flex;
+  height: 100%;
   flex-direction: column;
   overflow: hidden;
 }
@@ -22,6 +23,7 @@
 
 .body {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 0.5rem;
   padding: 1rem 1.25rem 1.25rem;

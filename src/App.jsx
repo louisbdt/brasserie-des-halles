@@ -17,7 +17,7 @@ function App() {
   const ActiveScreen = SCREENS[activeScreen]
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-white">
       <Header activeScreen={activeScreen} onScreenChange={setActiveScreen} />
       <main>
         <ActiveScreen onBookTable={() => setActiveScreen('reservation')} />

@@ -22,7 +22,7 @@ function DishCard({ dish, onViewDetail }) {
             ))}
           </ul>
         )}
-        <div className="mt-2 flex items-center justify-between">
+        <div className="mt-auto flex items-center justify-between pt-2">
           <span className="font-heading text-lg text-terracotta-600">
             {formatPrice(dish.price)}
           </span>
