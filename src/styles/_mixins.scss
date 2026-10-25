@@ -1,0 +1,22 @@
+@use 'variables' as vars;
+
+@mixin card-surface($bg: white) {
+  background-color: $bg;
+  border-radius: vars.$radius-base;
+  box-shadow: 0 2px 8px vars.$shadow-color;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px vars.$shadow-color;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &:hover {
+      transform: none;
+    }
+  }
+}
