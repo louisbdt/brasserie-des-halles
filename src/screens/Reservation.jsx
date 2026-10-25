@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Button from '../components/Button'
+import { formatPhoneNumber } from '../utils/formatPhoneNumber'
 
 const INITIAL_STATE = { date: '', time: '', guests: '2', name: '', phone: '' }
 
@@ -152,7 +153,9 @@ function Reservation() {
             type="tel"
             placeholder="06 12 34 56 78"
             value={form.phone}
-            onChange={handleFieldChange('phone')}
+            onChange={(event) =>
+              setForm({ ...form, phone: formatPhoneNumber(event.target.value) })
+            }
             aria-invalid={Boolean(errors.phone)}
             aria-describedby={errors.phone ? 'phone-error' : undefined}
             className="mt-1 min-h-11 w-full rounded-lg border border-sage/30 px-3 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage"
