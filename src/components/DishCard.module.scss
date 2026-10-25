@@ -1,0 +1,34 @@
+@use '../styles/variables' as vars;
+@use '../styles/mixins' as mix;
+
+.card {
+  @include mix.card-surface(white);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.accent {
+  display: block;
+  height: 0.25rem;
+  width: 100%;
+}
+
+.photo {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  object-fit: cover;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+@each $category, $color in vars.$categories {
+  .card--#{$category} .accent {
+    background-color: $color;
+  }
+}
