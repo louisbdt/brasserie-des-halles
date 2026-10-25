@@ -6,6 +6,7 @@
     "price": 8.5,
     "diets": ["vegan", "gluten-free"],
     "description": "Potimarron rôti, crème d'avoine, chips de sarrasin torréfié.",
+    "allergens": [],
     "photo": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=600&q=80"
   },
   {
@@ -15,6 +16,7 @@
     "price": 9,
     "diets": ["vegetarian"],
     "description": "Œuf mollet, mouillettes toastées, beurre demi-sel aux herbes.",
+    "allergens": ["œufs", "gluten", "lait"],
     "photo": "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&q=80"
   },
   {
@@ -24,6 +26,7 @@
     "price": 11,
     "diets": ["vegetarian", "gluten-free"],
     "description": "Burrata crémeuse, tomates de saison, pesto basilic frais.",
+    "allergens": ["lait", "fruits à coque"],
     "photo": "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=600&q=80"
   },
   {
@@ -33,6 +36,7 @@
     "price": 22,
     "diets": ["gluten-free"],
     "description": "Joue de bœuf confite 8h, purée de panais, jus corsé à la bière brune.",
+    "allergens": ["sulfites"],
     "photo": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80"
   },
   {
@@ -42,6 +46,7 @@
     "price": 24,
     "diets": ["gluten-free"],
     "description": "Cabillaud snacké, beurre blanc citronné, légumes du maraîcher local.",
+    "allergens": ["poissons", "lait"],
     "photo": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80"
   },
   {
@@ -51,6 +56,7 @@
     "price": 18,
     "diets": ["vegetarian", "gluten-free"],
     "description": "Riz carnaroli, champignons de saison, parmesan affiné 18 mois.",
+    "allergens": ["lait", "céleri"],
     "photo": "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80"
   },
   {
@@ -60,6 +66,7 @@
     "price": 17.5,
     "diets": [],
     "description": "Pain brioché maison, bœuf maturé 30 jours, cheddar, oignons confits, frites maison.",
+    "allergens": ["gluten", "lait", "œufs", "moutarde"],
     "photo": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80"
   },
   {
@@ -69,6 +76,7 @@
     "price": 16,
     "diets": ["vegan", "gluten-free"],
     "description": "Carottes, patate douce et pois chiches, lait de coco, riz basmati parfumé.",
+    "allergens": [],
     "photo": "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=600&q=80"
   },
   {
@@ -78,6 +86,7 @@
     "price": 8,
     "diets": ["vegetarian"],
     "description": "Chocolat 70%, cœur coulant, glace vanille de Madagascar.",
+    "allergens": ["lait", "œufs"],
     "photo": "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=600&q=80"
   },
   {
@@ -87,6 +96,7 @@
     "price": 7.5,
     "diets": ["vegetarian"],
     "description": "Pommes caramélisées, pâte feuilletée maison, caramel au beurre salé.",
+    "allergens": ["gluten", "lait"],
     "photo": "https://images.unsplash.com/photo-1535920527002-b35e96722eb9?w=600&q=80"
   },
   {
@@ -96,6 +106,7 @@
     "price": 6.5,
     "diets": ["vegan", "gluten-free"],
     "description": "Fruits frais du marché, sirop léger au citron vert et menthe.",
+    "allergens": [],
     "photo": "https://images.unsplash.com/photo-1568909344668-6f14a07b56a0?w=600&q=80"
   },
   {
@@ -105,6 +116,7 @@
     "price": 8,
     "diets": ["vegan", "gluten-free"],
     "description": "Base de noix de cajou, crème végétale au citron, coulis de fruits rouges.",
+    "allergens": ["fruits à coque"],
     "photo": "https://images.unsplash.com/photo-1567171466295-4afa63d45416?w=600&q=80"
   }
 ]

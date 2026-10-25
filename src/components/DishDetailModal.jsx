@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react'
 import { DIET_LABELS } from '../constants/diets'
 import Badge from './Badge'
+import Button from './Button'
 
-function DishDetailModal({ dish, onClose }) {
+function DishDetailModal({ dish, onClose, onBookTable }) {
   const closeButtonRef = useRef(null)
 
   useEffect(() => {
@@ -42,11 +43,19 @@ function DishDetailModal({ dish, onClose }) {
           </button>
         </div>
         <img
-          className="mt-4 aspect-4/3 w-full rounded-lg object-cover"
+          className="mt-4 h-40 w-full rounded-lg object-cover"
           src={dish.photo}
           alt={dish.name}
         />
         <p className="mt-4 text-ink/80">{dish.description}</p>
+        <div className="mt-4">
+          <h3 className="text-sm font-medium text-ink/70">Allergènes</h3>
+          <p className="mt-1 text-ink/80">
+            {dish.allergens.length > 0
+              ? dish.allergens.join(', ')
+              : 'Aucun allergène majeur identifié'}
+          </p>
+        </div>
         {dish.diets.length > 0 && (
           <ul className="mt-4 flex flex-wrap gap-2" aria-label="Régimes compatibles">
             {dish.diets.map((diet) => (
@@ -59,6 +68,19 @@ function DishDetailModal({ dish, onClose }) {
         <p className="mt-4 font-heading text-lg text-terracotta-600">
           {dish.price.toFixed(2).replace('.', ',')} €
         </p>
+        {onBookTable && (
+          <div className="mt-4">
+            <Button
+              variant="secondary"
+              onClick={() => {
+                onClose()
+                onBookTable()
+              }}
+            >
+              Réserver une table
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   )

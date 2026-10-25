@@ -12,7 +12,7 @@ function DishCard({ dish, onViewDetail }) {
       <img className={styles.photo} src={dish.photo} alt={dish.name} />
       <div className={styles.body}>
         <h3 className="font-heading text-lg text-ink">{dish.name}</h3>
-        <p className="text-sm text-ink/70">{dish.description}</p>
+        <p className="line-clamp-2 text-sm text-ink/70">{dish.description}</p>
         {dish.diets.length > 0 && (
           <ul className="flex flex-wrap gap-2" aria-label="Régimes compatibles">
             {dish.diets.map((diet) => (

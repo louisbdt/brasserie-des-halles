@@ -16,7 +16,7 @@ const DIETS = [
   { id: 'gluten-free', label: 'sans gluten' },
 ]
 
-function Menu() {
+function Menu({ onBookTable }) {
   const [categoryFilter, setCategoryFilter] = useState(null)
   const [dietFilter, setDietFilter] = useState(null)
   const [selectedDish, setSelectedDish] = useState(null)
@@ -98,7 +98,11 @@ function Menu() {
       )}
 
       {selectedDish && (
-        <DishDetailModal dish={selectedDish} onClose={() => setSelectedDish(null)} />
+        <DishDetailModal
+          dish={selectedDish}
+          onClose={() => setSelectedDish(null)}
+          onBookTable={onBookTable}
+        />
       )}
     </section>
   )
