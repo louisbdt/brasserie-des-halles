@@ -16,8 +16,17 @@ function Home({ onBookTable }) {
           <Button onClick={onBookTable}>Réserver une table</Button>
         </div>
         <img
-          src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1200&q=80"
+          src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=700&q=70&auto=format&fit=crop"
+          srcSet="
+            https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=700&q=70&auto=format&fit=crop 700w,
+            https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1000&q=70&auto=format&fit=crop 1000w
+          "
+          sizes="(min-width: 768px) 460px, 100vw"
           alt="Une tablée partageant un repas convivial à La Brasserie des Halles"
+          width="700"
+          height="467"
+          fetchPriority="high"
+          decoding="async"
           className="h-64 w-full rounded-2xl object-cover shadow-lg md:h-96"
         />
       </section>

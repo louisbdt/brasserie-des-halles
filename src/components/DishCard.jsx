@@ -9,7 +9,13 @@ function DishCard({ dish, onViewDetail }) {
   return (
     <article className={`${styles.card} ${styles[`card--${dish.category}`]}`}>
       <span className={styles.accent} aria-hidden="true" />
-      <img className={styles.photo} src={dish.photo} alt={dish.name} />
+      <img
+        className={styles.photo}
+        src={dish.photo}
+        alt={dish.name}
+        loading="lazy"
+        decoding="async"
+      />
       <div className={styles.body}>
         <h3 className="font-heading text-lg text-ink">{dish.name}</h3>
         <p className="line-clamp-2 text-sm text-ink/70">{dish.description}</p>
