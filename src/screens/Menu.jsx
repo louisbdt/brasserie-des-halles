@@ -8,6 +8,7 @@ const CATEGORIES = [
   { id: 'starter', label: 'Entrées' },
   { id: 'main', label: 'Plats' },
   { id: 'dessert', label: 'Desserts' },
+  { id: 'drink', label: 'Bières' },
 ]
 
 const DIETS = [
