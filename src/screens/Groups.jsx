@@ -62,7 +62,7 @@ function Groups() {
 
   return (
     <section className="mx-auto max-w-xl px-6 py-10">
-      <h1 className="font-heading text-2xl text-ink">Groupes & privatisation</h1>
+      <h1 className="font-heading text-2xl text-ink">Groupes et privatisation</h1>
       <p className="mt-3 text-ink/70">
         La salle peut être privatisée à partir de 20 personnes, sur devis. Remplissez le
         formulaire ci-dessous et nous revenons vers vous sous 48h.
