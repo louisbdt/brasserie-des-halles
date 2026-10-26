@@ -2,18 +2,19 @@ import { useState } from 'react'
 import Button from '../components/Button'
 import TextField from '../components/TextField'
 
-const INITIAL_STATE = { name: '', email: '', guests: '15', date: '', message: '' }
+const INITIAL_STATE = { firstName: '', lastName: '', email: '', guests: '20', date: '', message: '' }
 
 function validateForm(form) {
   const errors = {}
 
-  if (!form.name.trim()) errors.name = 'Indiquez votre nom.'
+  if (!form.firstName.trim()) errors.firstName = 'Indiquez votre prénom.'
+  if (!form.lastName.trim()) errors.lastName = 'Indiquez votre nom.'
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
     errors.email = 'Adresse e-mail invalide.'
   }
   const guests = Number(form.guests)
-  if (!guests || guests < 15) {
-    errors.guests = 'La privatisation est possible à partir de 15 personnes.'
+  if (!guests || guests < 20) {
+    errors.guests = 'La privatisation est possible à partir de 20 personnes.'
   }
   if (!form.date) errors.date = 'Indiquez une date souhaitée.'
 
@@ -41,8 +42,8 @@ function Groups() {
       <section className="mx-auto max-w-xl px-6 py-16 text-center">
         <h1 className="font-heading text-2xl text-ink">Demande envoyée</h1>
         <p className="mt-4 text-ink/70">
-          Merci {form.name.trim()}, votre demande de devis pour {form.guests} personnes a bien
-          été reçue. Nous vous recontacterons sous 48h à l'adresse {form.email.trim()}.
+          Merci {form.firstName.trim()}, votre demande de devis pour {form.guests} personnes a
+          bien été reçue. Nous vous recontacterons sous 48h à l'adresse {form.email.trim()}.
         </p>
         <div className="mt-6">
           <Button
@@ -63,18 +64,27 @@ function Groups() {
     <section className="mx-auto max-w-xl px-6 py-10">
       <h1 className="font-heading text-2xl text-ink">Groupes & privatisation</h1>
       <p className="mt-3 text-ink/70">
-        La salle peut être privatisée à partir de 15 personnes, sur devis. Remplissez le
+        La salle peut être privatisée à partir de 20 personnes, sur devis. Remplissez le
         formulaire ci-dessous et nous revenons vers vous sous 48h.
       </p>
 
       <form className="mt-6 flex flex-col gap-5" onSubmit={handleSubmit} noValidate>
         <TextField
-          id="group-name-field"
+          id="group-first-name-field"
+          label="Prénom"
+          type="text"
+          value={form.firstName}
+          onChange={handleFieldChange('firstName')}
+          error={errors.firstName}
+        />
+
+        <TextField
+          id="group-last-name-field"
           label="Nom"
           type="text"
-          value={form.name}
-          onChange={handleFieldChange('name')}
-          error={errors.name}
+          value={form.lastName}
+          onChange={handleFieldChange('lastName')}
+          error={errors.lastName}
         />
 
         <TextField
@@ -90,7 +100,7 @@ function Groups() {
           id="group-guests-field"
           label="Nombre de personnes"
           type="number"
-          min="15"
+          min="20"
           value={form.guests}
           onChange={handleFieldChange('guests')}
           error={errors.guests}

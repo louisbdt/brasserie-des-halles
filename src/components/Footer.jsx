@@ -1,4 +1,4 @@
-import { RESTAURANT_ADDRESS, SERVICE_HOURS } from '../constants/restaurant'
+import { RESTAURANT_ADDRESS, RESTAURANT_PHONE, SERVICE_HOURS } from '../constants/restaurant'
 
 function Footer() {
   return (
@@ -7,6 +7,7 @@ function Footer() {
         <div>
           <p className="font-heading text-base text-sage">La Brasserie des Halles</p>
           <p className="mt-1">{RESTAURANT_ADDRESS}</p>
+          <p className="mt-1">{RESTAURANT_PHONE}</p>
         </div>
         <div>
           {SERVICE_HOURS.map((slot) => (

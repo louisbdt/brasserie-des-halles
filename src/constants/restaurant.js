@@ -1,5 +1,7 @@
 export const RESTAURANT_ADDRESS = '8 Place du Boulingrin, 51100 Reims'
 
+export const RESTAURANT_PHONE = '03 26 40 12 34'
+
 export const SERVICE_HOURS = [
   { label: 'Service du midi', hours: '12h00 – 14h30' },
   { label: 'Service du soir', hours: '19h00 – 23h00' },
@@ -24,11 +26,11 @@ export const OFFERINGS = [
   },
   {
     title: 'Réservation en ligne',
-    detail: 'Gratuite, pour une table jusqu’à 8 personnes.',
+    detail: 'Gratuite, pour une table jusqu’à 19 personnes.',
   },
   {
     title: 'Privatisation de salle',
-    detail: 'À partir de 15 personnes, sur devis.',
+    detail: 'À partir de 20 personnes, sur devis.',
   },
   {
     title: 'Bières artisanales locales',

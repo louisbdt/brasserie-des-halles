@@ -4,7 +4,7 @@ import TextField from '../components/TextField'
 import { RESERVATION_HOURS_MESSAGE, RESERVATION_WINDOWS } from '../constants/restaurant'
 import { formatPhoneNumber } from '../utils/formatPhoneNumber'
 
-const INITIAL_STATE = { date: '', time: '', guests: '2', name: '', phone: '' }
+const INITIAL_STATE = { date: '', time: '', guests: '2', firstName: '', lastName: '', phone: '' }
 
 const isWithinServiceHours = (time) =>
   RESERVATION_WINDOWS.some((window) => time >= window.start && time <= window.end)
@@ -19,10 +19,11 @@ function validateForm(form, todayISO) {
   else if (!isWithinServiceHours(form.time)) errors.time = RESERVATION_HOURS_MESSAGE
 
   const guests = Number(form.guests)
-  if (!guests || guests < 1 || guests > 8) {
-    errors.guests = 'Entre 1 et 8 personnes en ligne (au-delà, voir Groupes).'
+  if (!guests || guests < 1 || guests > 19) {
+    errors.guests = 'Entre 1 et 19 personnes en ligne (au-delà, voir Groupes).'
   }
-  if (!form.name.trim()) errors.name = 'Indiquez votre nom.'
+  if (!form.firstName.trim()) errors.firstName = 'Indiquez votre prénom.'
+  if (!form.lastName.trim()) errors.lastName = 'Indiquez votre nom.'
   if (!/^0[1-9](\s?\d{2}){4}$/.test(form.phone.trim())) {
     errors.phone = 'Numéro de téléphone invalide, par exemple 06 12 34 56 78.'
   }
@@ -52,8 +53,8 @@ function Reservation() {
       <section className="mx-auto max-w-xl px-6 py-16 text-center">
         <h1 className="font-heading text-2xl text-ink">Réservation confirmée</h1>
         <p className="mt-4 text-ink/70">
-          Merci {form.name.trim()}, votre table pour {form.guests} personne(s) le {form.date} à{' '}
-          {form.time} est enregistrée.
+          Merci {form.firstName.trim()}, votre table pour {form.guests} personne(s) le {form.date}{' '}
+          à {form.time} est enregistrée.
         </p>
         <div className="mt-6">
           <Button
@@ -101,19 +102,28 @@ function Reservation() {
           label="Nombre de couverts"
           type="number"
           min="1"
-          max="8"
+          max="19"
           value={form.guests}
           onChange={handleFieldChange('guests')}
           error={errors.guests}
         />
 
         <TextField
-          id="name-field"
+          id="first-name-field"
+          label="Prénom"
+          type="text"
+          value={form.firstName}
+          onChange={handleFieldChange('firstName')}
+          error={errors.firstName}
+        />
+
+        <TextField
+          id="last-name-field"
           label="Nom"
           type="text"
-          value={form.name}
-          onChange={handleFieldChange('name')}
-          error={errors.name}
+          value={form.lastName}
+          onChange={handleFieldChange('lastName')}
+          error={errors.lastName}
         />
 
         <TextField
