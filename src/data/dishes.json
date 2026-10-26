@@ -124,8 +124,8 @@
     "name": "Blonde du Boulingrin",
     "category": "drink",
     "price": 6.5,
-    "diets": ["vegan"],
-    "description": "Bière blonde artisanale brassée localement, 5,5°, légère amertume.",
+    "diets": [],
+    "description": "Bière blonde artisanale brassée localement, 33 cl, 5,5°, légère amertume.",
     "allergens": ["gluten"],
     "photo": "https://images.unsplash.com/photo-1608270586620-248524c67de9?w=600&q=80"
   },
@@ -134,8 +134,8 @@
     "name": "IPA des Halles",
     "category": "drink",
     "price": 7,
-    "diets": ["vegan"],
-    "description": "India Pale Ale houblonnée, notes d'agrumes et de fruits exotiques.",
+    "diets": [],
+    "description": "India Pale Ale houblonnée, 33 cl, notes d'agrumes et de fruits exotiques.",
     "allergens": ["gluten"],
     "photo": "https://images.unsplash.com/photo-1600788886242-5c96aabe3757?w=600&q=80"
   },
@@ -144,8 +144,8 @@
     "name": "Ambrée sans gluten",
     "category": "drink",
     "price": 7.5,
-    "diets": ["vegan", "gluten-free"],
-    "description": "Bière ambrée brassée sans gluten, notes caramélisées et rondes.",
+    "diets": ["gluten-free"],
+    "description": "Bière ambrée brassée sans gluten, 33 cl, notes caramélisées et rondes.",
     "allergens": [],
     "photo": "https://images.unsplash.com/photo-1587582816472-81e94768469a?w=600&q=80"
   }
