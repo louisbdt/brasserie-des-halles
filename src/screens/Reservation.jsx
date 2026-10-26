@@ -1,15 +1,23 @@
 import { useState } from 'react'
 import Button from '../components/Button'
 import TextField from '../components/TextField'
+import { RESERVATION_HOURS_MESSAGE, RESERVATION_WINDOWS } from '../constants/restaurant'
 import { formatPhoneNumber } from '../utils/formatPhoneNumber'
 
 const INITIAL_STATE = { date: '', time: '', guests: '2', name: '', phone: '' }
 
-function validateForm(form) {
+const isWithinServiceHours = (time) =>
+  RESERVATION_WINDOWS.some((window) => time >= window.start && time <= window.end)
+
+function validateForm(form, todayISO) {
   const errors = {}
 
   if (!form.date) errors.date = 'Indiquez une date.'
+  else if (form.date < todayISO) errors.date = 'La date ne peut pas être dans le passé.'
+
   if (!form.time) errors.time = 'Indiquez une heure.'
+  else if (!isWithinServiceHours(form.time)) errors.time = RESERVATION_HOURS_MESSAGE
+
   const guests = Number(form.guests)
   if (!guests || guests < 1 || guests > 8) {
     errors.guests = 'Entre 1 et 8 personnes en ligne (au-delà, voir Groupes).'
@@ -26,6 +34,7 @@ function Reservation() {
   const [form, setForm] = useState(INITIAL_STATE)
   const [errors, setErrors] = useState({})
   const [confirmed, setConfirmed] = useState(false)
+  const todayISO = new Date().toLocaleDateString('en-CA')
 
   const handleFieldChange = (field) => (event) => {
     setForm({ ...form, [field]: event.target.value })
@@ -33,7 +42,7 @@ function Reservation() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    const formErrors = validateForm(form)
+    const formErrors = validateForm(form, todayISO)
     setErrors(formErrors)
     if (Object.keys(formErrors).length === 0) setConfirmed(true)
   }
@@ -69,19 +78,23 @@ function Reservation() {
           id="date-field"
           label="Date"
           type="date"
+          min={todayISO}
           value={form.date}
           onChange={handleFieldChange('date')}
           error={errors.date}
         />
 
-        <TextField
-          id="time-field"
-          label="Heure"
-          type="time"
-          value={form.time}
-          onChange={handleFieldChange('time')}
-          error={errors.time}
-        />
+        <div>
+          <TextField
+            id="time-field"
+            label="Heure"
+            type="time"
+            value={form.time}
+            onChange={handleFieldChange('time')}
+            error={errors.time}
+          />
+          {!errors.time && <p className="mt-1 text-sm text-ink/60">{RESERVATION_HOURS_MESSAGE}</p>}
+        </div>
 
         <TextField
           id="guests-field"
