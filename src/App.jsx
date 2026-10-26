@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Footer from './components/Footer'
 import Header from './components/Header'
 import Groups from './screens/Groups'
 import Home from './screens/Home'
@@ -17,11 +18,12 @@ function App() {
   const ActiveScreen = SCREENS[activeScreen]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="flex min-h-screen flex-col bg-white">
       <Header activeScreen={activeScreen} onScreenChange={setActiveScreen} />
-      <main>
+      <main className="flex-1">
         <ActiveScreen onBookTable={() => setActiveScreen('reservation')} />
       </main>
+      <Footer />
     </div>
   )
 }
